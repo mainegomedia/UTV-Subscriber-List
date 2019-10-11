@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>UTV Email List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+                <!-- The core Firebase JS SDK is always required and must be listed first -->
+                <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+
+                <utv-logo></utv-logo>
+
+                <section>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="text" name="team" id="team" placeholder="Team">
+                    <input type="text" name="playerNumber" id="playerNumber" placeholder="Number">
+                    <!-- <input type="submit" onclick="writeData()" value="SUBMIT"> -->
+                    <button onclick="writeData()">SUBMIT</button>
+                </section>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDyxUNPief4Fk7Y2u25pGSCC9_8hQQvwf8",
+            authDomain: "test-23b3f.firebaseapp.com",
+            databaseURL: "https://test-23b3f.firebaseio.com",
+            projectId: "test-23b3f",
+            storageBucket: "",
+            messagingSenderId: "199628895452",
+            appId: "1:199628895452:web:5bebd500b01ea70f897019"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        function writeData() {
+            firebase.database().ref("Users").push().set({
+                firstName: document.getElementById("firstName").value,
+                lastName: document.getElementById("lastName").value,
+                email: document.getElementById("email").value,
+                team: document.getElementById("team").value,
+                number: document.getElementById("number").value
+            })
+        }
+        </script>
+
+        <script src="app.js"></script>
+
+    </body>
+</html>
